@@ -1,12 +1,12 @@
-version: '3'
+version: "3"
 services:
   web:
-    image: 770399057626.dkr.ecr.us-east-1.amazonaws.com/jenkins-cicd:latest
+    image: 373240450338.dkr.ecr.us-east-1.amazonaws.com/jenkins-aws-ecr-image:latest
     ports:
       - "5000:5000"
     logging:
       driver: awslogs
-      options: 
+      options:
         awslogs-group: ec2-tutorial
         awslogs-region: us-east-1
         awslogs-stream-prefix: web

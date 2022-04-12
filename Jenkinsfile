@@ -1,8 +1,8 @@
 pipeline {
   environment {
     // registry points to account ID and registry Credential is the same as Yulee Tea and the last part is the same as github registry (jenkins-cicd)
-    registry = '770399057626.dkr.ecr.us-east-1.amazonaws.com/jenkins-cicd'
-    registryCredential = 'IAM_SAA'
+    registry = '373240450338.dkr.ecr.us-east-1.amazonaws.com/jenkins-aws-ecr-image'
+    registryCredential = 'Yulee Tea'
     dockerImage = ''
   }
   agent any
@@ -27,7 +27,7 @@ pipeline {
     
     stage('Deploy docker image to AWS ECS container') {
             steps {
-                withAWS(credentials: 'IAM_SAA', region: 'us-east-1') {
+                withAWS(credentials: 'Yulee Tea', region: 'us-east-1') {
                   sh "chmod +x ./jenkins_ecr.sh"
                   sh "./jenkins_ecr.sh"
                 }
